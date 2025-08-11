@@ -13,7 +13,7 @@ class StoreCommentAction
 
 
 
-    public function execute(array $data, int $userId, int $feedbackId): Comment
+    public function execute(array $data, string $userId, string $feedbackId): Comment
     {
         $data['user_id']     = $userId;
         $data['feedback_id'] = $feedbackId;

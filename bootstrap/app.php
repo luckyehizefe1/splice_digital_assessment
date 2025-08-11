@@ -14,8 +14,9 @@ if (!function_exists('mapRoutes')) {
     function mapRoutes()
     {
         $routes = [
-            'auth'      => '/../routes/auth/auth.php',
-            'feedback'  => '/../routes/feedback/feedback.php'
+            'auth'       => '/../routes/auth/auth.php',
+            'feedbacks'  => '/../routes/feedback/feedback.php',
+            'comments'   => '/../routes/comments/comments.php'
         ];
 
         foreach ($routes as $prefix => $routeFile) {

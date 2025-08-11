@@ -26,4 +26,9 @@ class Comment extends Model
     {
         return $this->belongsTo(Feedback::class);
     }
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('user_id')->nullable();
             $table->text('content');
-            $table->foreignId('feedback_id')->constrained()->onDelete('cascade');
+            $table->string('feedback_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

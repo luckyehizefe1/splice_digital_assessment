@@ -29,7 +29,7 @@ class FeedbackService
     }
 
 
-    public function getPaginated(int $perPage = 10): LengthAwarePaginator
+    public function feedbacks(int $perPage = 10): LengthAwarePaginator
     {
         return Feedback::with('user')->paginate($perPage);
     }

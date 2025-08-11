@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests\FeedbackRequest;
 use App\Actions\CreateFeedbackAction;
 use App\Services\FeedbackService;
@@ -27,6 +25,27 @@ class FeedbackController extends Controller
             $feedback,
             201,
             'Feedback created successfully'
+        );
+    }
+
+    public function feedbacks(): JsonResponse
+    {
+        $feedbacks = $this->feedbackService->feedbacks();
+        return sendResponse(
+            $feedbacks,
+            200,
+            'Feedbacks retrieved successfully'
+        );
+    }
+
+
+    public function feedback(string $feedbackId): JsonResponse
+    {
+        $feedback = $this->feedbackService->find($feedbackId);
+        return sendResponse(
+            $feedback,
+            200,
+            'Feedback retrieved successfully'
         );
     }
 }
