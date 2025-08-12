@@ -4,6 +4,9 @@ namespace App\Services\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Enums\RoleEnum;
 
 class AuthService
 {
@@ -32,6 +35,18 @@ class AuthService
     public function refresh(): string
     {
         return Auth::refresh();
+    }
+
+
+    public function signup(array $data): User
+    {
+        return User::create(
+            [
+                'name'     => $data['name'],
+                'email'    => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]
+        );
     }
 
     /**
